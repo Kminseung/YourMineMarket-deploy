@@ -2,7 +2,7 @@
 {
     float: left;
 	padding: 4px 4px 0px 4px;
-	border: 1px solid #f79d1e;
+	border: 1px solid #00C96E;
 	border-radius: 10px;
 }
 
@@ -58,7 +58,7 @@
 	min-height: 24px;
 	max-width: calc(100% - 64px);
 	left: 2px;
-	background-color: #f79d1e;
+	background-color: #00C96E;
 	border-radius: 3px;
 	z-index: 2;
 	padding: 4px 8px 4px 8px;
@@ -154,7 +154,7 @@
 	float: right;
 	width: 62px;
 	height: 68px;
-	background-color: #f79d1e;
+	background-color: #00C96E;
 	border-radius: 0px 8px 8px 0px;
 	margin: 0px 0px 0px 0px;
 	padding: 0px 0px 0px 0px;
@@ -172,7 +172,7 @@
 .chatBox
 {
 	width: 100%;
-	border: 1px solid #f79d1e;
+	border: 1px solid #00C96E;
 	border-radius: 10px;
 	position: absolute;
 }
@@ -180,7 +180,7 @@
 .chatBox .reviewBox
 {
 	padding: 4px 4px 0px 4px;
-	border: 1px solid #f79d1e;
+	border: 1px solid #00C96E;
 	border-radius: 10px;
 	float: right;
 }
@@ -189,7 +189,7 @@
 {
     float: left;
 	padding: 4px 4px 0px 4px;
-	border: 1px solid #f79d1e;
+	border: 1px solid #00C96E;
 	border-radius: 10px;
 }
 
