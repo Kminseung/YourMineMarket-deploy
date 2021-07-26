@@ -108,7 +108,7 @@
                     <input type="submit" role="button" class="btn btn-outline-secondary" value="등록"></button>
                 </div>
                 {{#userInfo.profile}}
-                    <img id="preview-image" src="/{{userInfo.profile}}" width=100 height=100 />
+                    <img id="preview-image" src="{{userInfo.profile}}" width=100 height=100 />
                 {{/userInfo.profile}}
                 {{^userInfo.profile}}
                     <img id="preview-image" src="/img/default.jpeg" width=100 height=100 />
