@@ -38,7 +38,7 @@ let getter = function getter() {
                 $("#board").append("<div class=\"col mb-5\">\n" +
                     "                        <div class=\"card h-100\">\n" +
                     "                            <a href=\"/posts/" + item.id + "\">\n" +
-                    "                                <img src=\"/postImage/" + item.thumbnail + "\" class=\"card-img-top\" alt=\"" + item.title + "\" width=\"200px\" height=\"200px\">\n" +
+                    "                                <img src=\"" + item.thumbnail + "\" class=\"card-img-top\" alt=\"" + item.title + "\" width=\"200px\" height=\"200px\">\n" +
                     "                            </a>\n" +
                     "                            <div class=\"card-body p-4\">\n" +
                     "                                <div class=\"text-center\">\n" +
