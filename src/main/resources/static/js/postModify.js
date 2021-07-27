@@ -31,7 +31,7 @@ postModify = function postModify(att_zone) {
             const p = ele.parentNode;
             attZone.removeChild(p)
             $("#toDelFile").val(function(i, val) {
-                return val + item + "/";
+                return val + item + "&";
             });
         }
 
