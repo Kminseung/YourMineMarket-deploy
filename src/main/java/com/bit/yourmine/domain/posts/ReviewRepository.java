@@ -24,14 +24,12 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     // Sell Review on YourPage
     @Query("SELECT r FROM Review r WHERE r.seller = :seller AND " +
-            "r.buyerScore is not null AND r.sellerScore is not null AND " +
-            "r.buyerReviewContent is not null AND r.sellerReviewContent is not null")
+            "r.buyerScore is not null AND r.buyerReviewContent is not null")
     List<Review> findAllSellReview(String seller);
 
     // Sell Review on YourPage
     @Query("SELECT r FROM Review r WHERE r.buyer = :buyer AND " +
-            "r.buyerScore is not null AND r.sellerScore is not null AND " +
-            "r.buyerReviewContent is not null AND r.sellerReviewContent is not null")
+            "r.sellerScore is not null AND r.sellerReviewContent is not null")
     List<Review> findAllBuyReview(String buyer);
 
     @Transactional

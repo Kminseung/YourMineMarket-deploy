@@ -71,6 +71,11 @@ public class ReviewService {
 
     @Transactional
     public void setScore(ReviewScoreSetDto scoreSetDto) {
+        if (scoreSetDto.getScore() == null) {
+            throw new IllegalArgumentException("review save : score");
+        } else if (scoreSetDto.getBuyerReviewContent() == null && scoreSetDto.getSellerReviewContent() == null) {
+            throw new IllegalArgumentException("review save : content");
+        }
         try {
             if (scoreSetDto.getPosition().equals("buyer")) {
                 reviewRepository.setBuyerScore(scoreSetDto.getNo(), scoreSetDto.getScore(), scoreSetDto.getBuyerReviewContent());

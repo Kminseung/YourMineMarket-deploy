@@ -142,8 +142,4 @@ public class ChatService {
     public int getChatCount(Long no) {
         return roomRepository.findAllByPostId(no).size();
     }
-
-    public void delRoom(Long id) {
-        roomRepository.delete(roomRepository.findById(id).get());
-    }
 }

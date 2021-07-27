@@ -1,5 +1,8 @@
 package com.bit.yourmine.service;
 
+import com.bit.yourmine.domain.chat.ChatRoom;
+import com.bit.yourmine.domain.chat.ChatRoomRepository;
+import com.bit.yourmine.domain.posts.Posts;
 import com.bit.yourmine.domain.users.Role;
 import com.bit.yourmine.domain.users.SessionUser;
 import com.bit.yourmine.domain.users.Users;
@@ -33,6 +36,7 @@ import java.util.regex.Pattern;
 public class UsersService implements UserDetailsService {
     private final UsersRepository usersRepository;
     private final FileService fileService;
+    private final ChatRoomRepository roomRepository;
     String idTest = "^[a-zA-z](?=.*[0-9]{1,16}).{7,16}";
     String pwTest = "(?=.*[0-9]{1,30})(?=.*[~`!@#$%\\^&*()-+=	]{1,30})(?=.*[a-zA-Z]{1,30}).{8,30}$";
     String numTest = "^[0-9]{3}-[0-9]{3,4}-[0-9]{4}$";
@@ -168,7 +172,17 @@ public class UsersService implements UserDetailsService {
     }
 
     public void leave(String id) {
-        usersRepository.delete(getUsers(id));
+        Users users = getUsers(id);
+        for (Posts posts: users.getPosts()) {
+            for (ChatRoom chatRoom : roomRepository.findAllByPostId(posts.getId())){
+                roomRepository.buyerOut(chatRoom.getIdentify());
+            }
+        }
+        List<ChatRoom> buyRooms = roomRepository.findBuyList("-" + id);
+        for (ChatRoom chatRoom : buyRooms) {
+            roomRepository.sellerOut(chatRoom.getIdentify());
+        }
+        usersRepository.delete(users);
     }
 
     // YourPage Service

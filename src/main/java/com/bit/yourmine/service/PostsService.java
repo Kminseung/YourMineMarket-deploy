@@ -1,5 +1,7 @@
 package com.bit.yourmine.service;
 
+import com.bit.yourmine.domain.chat.ChatRoom;
+import com.bit.yourmine.domain.chat.ChatRoomRepository;
 import com.bit.yourmine.domain.files.Files;
 import com.bit.yourmine.domain.files.FilesRepository;
 import com.bit.yourmine.domain.posts.Posts;
@@ -25,6 +27,7 @@ public class PostsService {
 
     private final PostsRepository postsRepository;
     private final UsersRepository usersRepository;
+    private final ChatRoomRepository roomRepository;
     private final FileService fileService;
     private final FilesRepository filesRepository;
     private final String wait = "거래대기";
@@ -63,6 +66,9 @@ public class PostsService {
 
     public void delete(Long id) {
         Posts posts = postsRepository.findById(id).get();
+        for (ChatRoom chatRoom: roomRepository.findAllByPostId(id)) {
+            roomRepository.buyerOut(chatRoom.getIdentify());
+        }
         postsRepository.delete(posts);
     }
 

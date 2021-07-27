@@ -126,16 +126,16 @@ public class UsersController {
     }
 
     // YourPage Controller
-    @GetMapping("/user/{name}")
-    public String yourPage(@PathVariable String name, Model model) {
-        Long userNo = usersService.getUsers(name).getNo();
+    @GetMapping("/user/{id}")
+    public String yourPage(@PathVariable String id, Model model) {
+        Long userNo = usersService.getUsers(id).getNo();
         List<PostsResponseDto> yourList = postsService.findAllYour(userNo);
         model.addAttribute("yourPost", yourList);
 
-        List<ReviewResponseDto> sellerReviewList = reviewService.findAllSellReview(name);
+        List<ReviewResponseDto> sellerReviewList = reviewService.findAllSellReview(id);
         model.addAttribute("sellerReviewList", sellerReviewList);
 
-        List<ReviewResponseDto> buyerReviewList = reviewService.findAllBuyReview(name);
+        List<ReviewResponseDto> buyerReviewList = reviewService.findAllBuyReview(id);
         model.addAttribute("buyerReviewList", buyerReviewList);
         return "account/yourPage";
     }
