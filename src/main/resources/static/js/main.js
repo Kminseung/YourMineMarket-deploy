@@ -158,7 +158,7 @@ function dateFormat(date) {
         }
     } else {
         let month = (time.getMonth()+1);
-        let day = time.getDay();
+        let day = time.getDate();
         month = month >= 10 ? month : '0' + month;
         day = day >= 10 ? day : '0' + day;
         return month + '월 ' + day + '일';
@@ -167,7 +167,7 @@ function dateFormat(date) {
 function chatTime(time) {
     const fulTime = new Date(time);
 
-    const ampm = (fulTime.getHours()>12 ?  "PM" : "AM");
+    const ampm = (fulTime.getHours()>11 ?  "PM" : "AM");
     const hour = (fulTime.getHours()>12 ? fulTime.getHours()-12 : fulTime.getHours());
     const min = (fulTime.getMinutes()>9 ? fulTime.getMinutes() : "0" + fulTime.getMinutes());
     return ampm + " " + hour + ":" + min;
