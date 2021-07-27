@@ -25,6 +25,7 @@ public class ChatService {
     private final ChatDBRepository dbRepository;
     private final PostsService postsService;
     private final UsersService usersService;
+    private final SmsService smsService;
 
     public void roomCheck(String roomId) {
         ChatRoom chatRoom = null;
@@ -35,6 +36,7 @@ public class ChatService {
         }
         if (chatRoom == null) {
             roomRepository.save(new ChatRoom(roomId));
+//            smsService.sendSms(usersService.getUsers(roomId.substring(roomId.indexOf("-")+1)).getPhone());
         }
     }
 
