@@ -57,7 +57,7 @@ public class ChatService {
         List<ChatRoomListDto> roomSortList = new ArrayList<>();
         List<ChatRoom> buyRooms = roomRepository.findBuyList("-" + id);
         for (ChatRoom chatRoom : buyRooms) {
-            if (chatRoom.getBuyerOut() != 1) {
+            if (chatRoom.getBuyerOut() != 1 && postsService.findById(chatRoom.getPostId()) != null) {
                 ChatRoomListDto dto = chatRoomToDto(chatRoom, id);
                 roomSortList.add(dto);
             }
