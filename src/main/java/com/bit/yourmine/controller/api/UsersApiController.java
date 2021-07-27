@@ -54,9 +54,6 @@ public class UsersApiController {
 
     @PostMapping("/passwordModify")
     public void passwordModify(@RequestBody PasswordModifyDto modifyDto) {
-        System.out.println("------------------------작동");
-        System.out.println(modifyDto.getId());
-        System.out.println(modifyDto.getPassword());
         usersService.passwordModify(modifyDto);
     }
 
