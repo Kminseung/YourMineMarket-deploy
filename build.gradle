@@ -45,7 +45,7 @@ dependencies {
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
     compile group: 'commons-fileupload' , name: 'commons-fileupload', version: '1.3.3'
     // sms
-//    compile group: 'net.nurigo', name: 'javaSDK', version: '2.2'
+    compile group: 'net.nurigo', name: 'javaSDK', version: '2.2'
     // mail
     implementation("org.springframework.boot:spring-boot-starter-mail")
     // websocket
