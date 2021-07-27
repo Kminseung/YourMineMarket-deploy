@@ -82,15 +82,15 @@ public class ChatService {
         ChatRoomListDto listDto = new ChatRoomListDto(chatRoom);
         listDto.setTitle(posts.getTitle());
         if (id.equals(posts.getAuthor())) {
-            String profile = posts.getUsers().getProfile();
+            String room = chatRoom.getIdentify();
+            String profile = usersService.getUsers(room.substring(room.indexOf("-")+1)).getProfile();
             if (profile == null) {
                 listDto.setProfile("/img/default.jpeg");
             } else {
                 listDto.setProfile(profile);
             }
         } else {
-            String room = chatRoom.getIdentify();
-            String profile = usersService.getUsers(room.substring(room.indexOf("-")+1)).getProfile();
+            String profile = posts.getUsers().getProfile();
             if (profile == null) {
                 listDto.setProfile("/img/default.jpeg");
             } else {
