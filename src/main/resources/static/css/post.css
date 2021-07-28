@@ -34,7 +34,11 @@
     margin-top: 50%;
     transform: translate(0%, -50%);
 }
-.carousel-out img {
+.carousel-out {
+    max-height: 400px;
+    max-width: 400px;
+}
+img {
     max-height: 400px;
     max-width: 400px;
 }

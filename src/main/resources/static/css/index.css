@@ -14,3 +14,11 @@ a {
     width: fit-content;
     margin: 5% auto;
 }
+.fw-bolder {
+    max-width: 180px;
+    display:inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
