@@ -51,7 +51,6 @@ public class PostsService {
         String saveFileName = fileService.fileSave(image, "postImage");
 
         Files files = new Files(saveFileName, posts);
-        System.out.println(saveFileName);
         filesRepository.save(files);
     }
 
