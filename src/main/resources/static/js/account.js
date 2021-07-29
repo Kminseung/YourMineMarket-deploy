@@ -297,7 +297,7 @@ const account = {
             if (result === "null") {
                 alert('가입 정보가 없습니다');
             } else {
-                alert("해당 번호로 가입된 아이디는 "+result+" 입니다");
+                alert("해당 이메일로 가입된 아이디는 "+result+" 입니다");
             }
         }).fail(function (error) {
             console.error(JSON.stringify(error));
