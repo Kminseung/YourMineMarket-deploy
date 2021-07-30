@@ -2,6 +2,9 @@ language: java
 jdk:
   - openjdk8
 
+branches:
+  only:
+    - aws_version
 # Travis CI 서버의 Home
 cache:
   directories:
