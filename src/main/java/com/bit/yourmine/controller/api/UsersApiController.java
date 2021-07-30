@@ -52,7 +52,7 @@ public class UsersApiController {
     }
 
 
-    @PostMapping("/passwordModify")
+    @PostMapping("/passwordModifyApi")
     public void passwordModify(@RequestBody PasswordModifyDto modifyDto) {
         usersService.passwordModify(modifyDto);
     }

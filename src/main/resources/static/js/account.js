@@ -271,12 +271,12 @@ const account = {
         }
         $.ajax({
             type: 'POST',
-            url: "/passwordModify",
+            url: "/passwordModifyApi",
             contentType: 'application/json; charset=UTF-8',
             data: JSON.stringify(data),
             success: function() {
                 alert("변경되었습니다");
-                // window.location.href="/myPage";
+                 window.location.href="/myPage";
             },
             error: function(error) {
                 console.error(error);
