@@ -36,7 +36,8 @@ public class ChatService {
         }
         if (chatRoom == null) {
             roomRepository.save(new ChatRoom(roomId));
-//            smsService.sendSms(usersService.getUsers(roomId.substring(roomId.indexOf("-")+1)).getPhone());
+//            smsService.sendSms(postsService.findById(Long.valueOf(
+//                    roomId.substring(0, roomId.indexOf("-")))).getUsers().getPhone());
         }
     }
 

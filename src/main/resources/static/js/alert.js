@@ -25,7 +25,7 @@
         opClass:'popup_open',
         sp:'body',
         op : {
-            title:'알림',
+            title:'',
             em:'',
             callEvent:null,
             cancelEvent:null,

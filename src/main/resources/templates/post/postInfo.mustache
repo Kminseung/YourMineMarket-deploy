@@ -33,9 +33,9 @@
             <h4>{{post.title}}</h4>
         </div>
         {{#post2}}
-        <div class="seller">
-            <p>{{users.address}}</p>
-        </div>
+            <div class="seller">
+                <p>{{users.address}}</p>
+            </div>
         {{/post2}}
         <div class="seller">
             <p><a href="/user/{{post.users.id}}">판매자 : {{post.users.id}}</a></p>
@@ -91,16 +91,16 @@
                 {{#hitPost}}
                     <div class="col mb-5">
                         <a href="/posts/{{id}}">
-                        <div class="card h-100">
-                            <img src="{{thumbnail}}" class="card-img-top" alt="{{title}}" width="200px" height="200px">
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <h5 class="fw-bolder">{{title}}</h5>
-                                    <p>{{price}}원</p>
-                                    <p>{{status}}</p>
+                            <div class="card h-100">
+                                <img src="{{thumbnail}}" class="card-img-top" alt="{{title}}" width="200px" height="200px">
+                                <div class="card-body p-4">
+                                    <div class="text-center">
+                                        <h5 class="fw-bolder">{{title}}</h5>
+                                        <p>{{price}}원</p>
+                                        <p>{{status}}</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         </a>
                     </div>
                 {{/hitPost}}

@@ -3,7 +3,6 @@
 <link href="/css/dropdown.css" rel="stylesheet" />
 <link href="/css/chat.css" rel="stylesheet" />
 <link href="/css/alert.css" rel="stylesheet" />
-
 <div class="chatBox" style="width: 380px; height: 520px;">
     <div class="ttt" style="width: 380px; height: 40px;">
         <div class="dropdown" style="display: inline-block;">
@@ -12,18 +11,18 @@
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                 {{#review}}
-                <li><a class="dropdown-item" href="#" id="modalBtn">리뷰쓰기</a></li>
+                    <li><a class="dropdown-item" href="#" id="modalBtn">리뷰쓰기</a></li>
                 {{/review}}
                 {{#owner}}
-                <li class="dropdown-submenu"><a class="dropdown-item" tabindex="-1" href="#" id="statusDropdown">{{post.status}}</a>
-                    <input type="hidden" id="status" value="{{post.status}}">
-                    <input type="hidden" id="postNo" value="{{post.id}}">
-                    <ul class="dropdown-menu" id="dropdown-menu">
-                        <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setStandby()">거래대기</a></li>
-                        <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setProgress()">거래중</a></li>
-                        <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setDone()">거래완료</a></li>
-                    </ul>
-                </li>
+                    <li class="dropdown-submenu"><a class="dropdown-item" tabindex="-1" href="#" id="statusDropdown">{{post.status}}</a>
+                        <input type="hidden" id="status" value="{{post.status}}">
+                        <input type="hidden" id="postNo" value="{{post.id}}">
+                        <ul class="dropdown-menu" id="dropdown-menu">
+                            <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setStandby()">거래대기</a></li>
+                            <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setProgress()">거래중</a></li>
+                            <li><a class="dropdown-item" tabindex="-1" href="#" onclick="setDone()">거래완료</a></li>
+                        </ul>
+                    </li>
                 {{/owner}}
                 <li><a class="dropdown-item" href="#" onclick="chatOut()" style="color: red;">채팅창 나가기</a></li>
             </ul>

@@ -2,6 +2,7 @@ window.resizeTo(396,588);
 let widthSize = 396/2;
 let heightSize = 588/2;
 window.moveTo(window.screen.width/2-widthSize, window.screen.height/2-heightSize);
+
 let ws;
 
 let nowStatus = $('#status').val();
@@ -144,7 +145,7 @@ function setProgress() {
 function setDone() {
     if (nowStatus === "거래완료") {
     } else {
-        $.confirm("\"거래 완료\"상태로 변경하면 다시 거래 상태변경이 불가능합니다. 정말 바꾸시겠습니까?", {
+        $.confirm("\"거래 완료\"상태로 변경하면 다시 거래 상태변경이 불가능합니다.", {
             callEvent:function(){
                 $('#statusDropdown').empty();
                 $('#statusDropdown').append("거래완료");
@@ -209,7 +210,8 @@ function chatOut() {
                 console.error(error);
             });
         }
-    });
+    })
+
 }
 
 function LoadChatTime(time) {
@@ -242,7 +244,6 @@ function sendReview() {
         position: $('#position').val(),
         score: $('input[id="battery1"]:checked').val()
     };
-
     if (info.score === "") {
         $.alert('점수를 입력해주세요');
         return;
@@ -251,7 +252,6 @@ function sendReview() {
         $.alert("점수를 입력해주세요");
         return;
     }
-
     if($('#position').val() === 'buyer') {
         info.buyerReviewContent = $('#reviewContent').val()
     } else if($('#position').val() === 'seller') {

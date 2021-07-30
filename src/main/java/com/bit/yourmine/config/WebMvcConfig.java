@@ -19,12 +19,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(customInterceptor)
-                        .addPathPatterns("/chat/**")
-                        .addPathPatterns("/posts/modify/*")
-                        .addPathPatterns("/posts/delete/*")
-                        .addPathPatterns("/review/**")
-                        .addPathPatterns("/request/users/*")
-                        .excludePathPatterns("/review/set", "/chat/db/**");
+                .addPathPatterns("/chat/**")
+                .addPathPatterns("/posts/modify/*")
+                .addPathPatterns("/posts/delete/*")
+                .addPathPatterns("/review/**")
+                .addPathPatterns("/request/users/*")
+                .excludePathPatterns("/review/set", "/chat/db/**");
     }
 
     @Bean

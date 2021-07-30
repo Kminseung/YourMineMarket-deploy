@@ -63,7 +63,7 @@ public class FileService {
     public void delFiles(String name) {
         String[] nameList = name.split("&");
         for (String fileName: nameList) {
-                filesRepository.delete(filesRepository.findByFileName(fileName));
+            filesRepository.delete(filesRepository.findByFileName(fileName));
         }
     }
 }

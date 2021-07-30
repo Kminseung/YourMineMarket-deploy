@@ -65,10 +65,9 @@ public class UsersService implements UserDetailsService {
             throw new IllegalArgumentException("sign up : un valid address");
         } else if (users.getDetailAddress() == null) {
             throw new IllegalArgumentException("sign up : un valid detail address");
+        } else if (!pass.equals("pass")) {
+            throw new IllegalArgumentException("sign up : un valid email");
         }
-//        else if (!pass.equals("pass")) {
-//            throw new IllegalArgumentException("sign up : un valid email");
-//        }
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         users.setPassword(passwordEncoder.encode(users.getPassword()));
         users.setRole(Role.USER);

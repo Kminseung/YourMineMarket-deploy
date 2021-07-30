@@ -20,7 +20,7 @@ const account = {
             func.userModify();
         });
 
-        $('#btn-passwordModify').on('click', function () {
+        $(document).on('click', '#btn-passwordModify', function () {
             func.passwordModify();
         });
 
@@ -87,11 +87,11 @@ const account = {
             alert("이름을 입력해주세요");
             return;
         }
-//        if ($('#mailCheck').val() != "t"){
-//            console.log($('#mailCheck').val())
-//            alert("이메일 인증을 해주세요");
-//            return;
-//        }
+       if ($('#mailCheck').val() != "t"){
+           console.log($('#mailCheck').val())
+           alert("이메일 인증을 해주세요");
+           return;
+       }
         if (data.address == "") {
             alert("주소를 입력해주세요");
             return;
@@ -276,7 +276,7 @@ const account = {
             data: JSON.stringify(data),
             success: function() {
                 alert("변경되었습니다");
-                 window.location.href="/myPage";
+                window.location.href="/myPage";
             },
             error: function(error) {
                 console.error(error);
@@ -374,7 +374,6 @@ const account = {
                         "<label for=\"password2\">비밀번호 확인</label>\n" +
                         "</div>\n");
                     $('#button-attach').append("<button type=\"button\" class=\"btn btn-primary\" id=\"btn-passwordModify\">비밀번호 변경</button>");
-                    account.init();
                 } else {
                     alert("인증번호 오류");
                 }

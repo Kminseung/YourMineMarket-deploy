@@ -1,0 +1,48 @@
+language: java
+jdk:
+  - openjdk8
+
+cache:
+  directories:
+    - '$HOME/.m2/repository'
+    - '$HOME/.gradle'
+
+script: "./gradlew clean build"
+
+before_deploy:
+  - zip -r yourmine *
+  - mkdir -p deploy
+  - mv yourmine.zip deploy/yourmine.zip
+
+deploy:
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: yourmine-server
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy # before_deploy에서 생성한 디렉토리
+    wait-until-deployed: true
+    on:
+      repo: upiter0303/YourMine
+      branch: aws_version
+
+  - provider: codedeploy
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+    bucket: yourmine-server
+    key: yourmine.zip
+    bundle_type: zip
+    application: yourmine-codedeploy
+    deployment_group: yourmine-codedeploy-group
+    region: ap-northeast-2
+    wait-untill-deployed: true
+    on:
+      repo: upiter0303/YourMine
+      branch: aws_version
+
+notifications:
+  email:
+    recipients:
+      - yourmineService@gmail.com

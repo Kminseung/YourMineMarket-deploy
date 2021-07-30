@@ -3,8 +3,8 @@
 <header class="bg-white py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="text-center text-black-50">
-            <h1 class="display-4 fw-bolder">Your Mine</h1>
-            <p class="lead fw-normal text-black-50 mb-0">123123123</p>
+            <img src="/img/ymm.png">
+            <p class="lead fw-normal text-black-50 mb-0">너와 나의 모든것 YOUR MINE에서 누리세요!</p>
         </div>
     </div>
 </header>
@@ -38,12 +38,12 @@
 <div class="post-description">
     <h4>{{input}}</h4>
 </div>
-    <section class="py-5">
-        <div class="container px-4 px-lg-5 mt-5 text-truncate">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="board">
-                {{#Post}}
-                    <div class="col mb-5">
-                        <a href="/posts/{{id}}">
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5 text-truncate">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center" id="board">
+            {{#Post}}
+                <div class="col mb-5">
+                    <a href="/posts/{{id}}">
                         <div class="card h-100">
                             <img src="{{thumbnail}}" class="card-img-top" alt="{{title}}" width="200px" height="200px">
                             <div class="card-body p-4">
@@ -54,12 +54,12 @@
                                 </div>
                             </div>
                         </div>
-                        </a>
-                    </div>
-                {{/Post}}
-            </div>
+                    </a>
+                </div>
+            {{/Post}}
         </div>
-    </section>
+    </div>
+</section>
 <input type="hidden" id="id" value="0">
 <input type="hidden" id="value" value="{{page.value}}">
 <input type="hidden" id="cursor" value="1">

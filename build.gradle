@@ -47,7 +47,7 @@ dependencies {
     // sms
     compile group: 'net.nurigo', name: 'javaSDK', version: '2.2'
     // mail
-    implementation("org.springframework.boot:spring-boot-starter-mail")
+    implementation('org.springframework.boot:spring-boot-starter-mail:2.5.2')
     // websocket
     compile group: 'org.springframework', name: 'spring-websocket', version: '5.2.3.RELEASE'
     compile 'com.googlecode.json-simple:json-simple:1.1.1'

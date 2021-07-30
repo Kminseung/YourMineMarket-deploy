@@ -44,9 +44,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/myPage", "/userModify", "/passwordModify", "/profileModify"
-                            , "/delProfile", "/chat/**", "/adminPage/**").authenticated()         // 로그인시 접속가능
+                        , "/delProfile", "/chat/**", "/adminPage/**").authenticated()         // 로그인시 접속가능
                 .antMatchers("/posts/save", "/posts/modify/*", "/posts/delete/*"
-                                , "/posts/review/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')") // admin or user 권한 접속가능
+                        , "/posts/review/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')") // admin or user 권한 접속가능
                 .anyRequest().permitAll()                                  // 모두 접속가능
                 .and()
                 .formLogin()
