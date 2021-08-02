@@ -131,7 +131,7 @@ public class UsersController {
         Long userNo = usersService.getUsers(id).getNo();
         String name = usersService.getUsers(id).getName();
 
-        model.addAttribute("your", name);
+        model.addAttribute("name", name);
 
         List<PostsResponseDto> yourList = postsService.findAllYour(userNo);
         model.addAttribute("yourPost", yourList);
