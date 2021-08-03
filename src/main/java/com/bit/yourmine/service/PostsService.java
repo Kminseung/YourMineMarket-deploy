@@ -150,4 +150,8 @@ public class PostsService {
             throw new IllegalArgumentException("post save : Content");
         }
     }
+
+    public Long LastId() {
+        return postsRepository.findByIdMax().get().getId();
+    }
 }

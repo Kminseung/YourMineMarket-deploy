@@ -82,6 +82,7 @@ public class MainController {
         pageDto.setKind(kind);
         pageDto.setValue(value);
         model.addAttribute("page", pageDto);
+        model.addAttribute("LastId", postsService.LastId());
         return "request";
     }
 
