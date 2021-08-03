@@ -111,7 +111,7 @@ public class PostsService {
     }
 
     public List<PostsResponseDto> findByHit(Pageable pageable, Long cursor) {
-        return postsRepository.HitDesc(pageable, cursor, wait).stream()
+        return postsRepository.HitDesc(pageable, wait).stream()
                 .map(PostsResponseDto::new)
                 .collect(Collectors.toList());
     }
