@@ -14,7 +14,8 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     @Query("SELECT p FROM Posts p WHERE p.id > :id AND p.status = :wait ORDER BY p.id DESC")
     List<Posts> findAllDesc(Pageable pageable, Long id, String wait);
 
-    @Query("SELECT p FROM Posts p WHERE p.id > :id AND p.status = :wait ORDER BY p.hit DESC")
+//    @Query("SELECT p FROM Posts p WHERE p.id > :id AND p.status = :wait ORDER BY p.hit DESC")
+    @Query("SELECT p FROM Posts p WHERE p.status = :wait ORDER BY p.hit DESC")
     List<Posts> HitDesc(Pageable pageable, Long id, String wait);
 
     @Query("SELECT p FROM Posts p WHERE p.category = :category AND p.id > :id AND p.status = :wait ORDER BY p.id")

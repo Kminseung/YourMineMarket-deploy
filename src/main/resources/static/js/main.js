@@ -32,7 +32,7 @@ let getter = function getter() {
             let cur = Number($("#cursor").val());
             $("#cursor").val(cur+1);
             let obj = JSON.parse(result);
-            let i = 1;
+            let i = 0;
             obj.forEach(function (item) {
                 $("#board").append("<div class=\"col mb-5\">\n" +
                     "                        <div class=\"card h-100\">\n" +
@@ -49,7 +49,7 @@ let getter = function getter() {
                     "                        </div>\n" +
                     "                    </div>");
                 i++;
-                if (result.length === i) {
+                if (obj.length == i) {
                     $('#id').val(item.id);
                 }
             })
