@@ -14,7 +14,7 @@ $(function () {
 
 
 let search = function search() {
-    window.location.href="/request/search/0/" + $('#keyword').val();
+    window.location.href="/request/search/" + $('#keyword').val();
 }
 let getter = function getter() {
     const data = {
