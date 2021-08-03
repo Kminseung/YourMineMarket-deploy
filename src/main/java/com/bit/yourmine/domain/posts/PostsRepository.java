@@ -40,5 +40,5 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     Optional<Posts> findById(Long id);
 
     @Query("SELECT max(p.id) FROM Posts p")
-    Optional<Posts> findByIdMax();
+    Long findByIdMax();
 }

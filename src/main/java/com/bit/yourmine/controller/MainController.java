@@ -53,36 +53,37 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/request/{kind}/{cursor}/{value}")
-    public String requestPage(@PathVariable String kind, @PathVariable Long cursor, @PathVariable String value, Model model) {
+    @GetMapping("/request/{kind}/{value}")
+    public String requestPage(@PathVariable String kind, @PathVariable String value, Model model) {
+        Long lastId = postsService.LastId();
         switch (kind) {
             case "category":
                 model.addAttribute("input", "해당 카테고리의 상품 목록");
-                model.addAttribute("Post", postsService.findByCategory(value, indexPage, cursor));
+                model.addAttribute("Post", postsService.findByCategory(value, indexPage, lastId));
                 break;
             case "hit":
                 System.out.println("request mapping");
                 model.addAttribute("input", "인기 상품 목록");
-                model.addAttribute("Post", postsService.findByHit(indexPage, cursor));
+                model.addAttribute("Post", postsService.findByHit(indexPage, lastId));
                 break;
             case "all":
                 model.addAttribute("input", "최근 상품 목록");
-                model.addAttribute("Post", postsService.findAllDesc(indexPage, cursor));
+                model.addAttribute("Post", postsService.findAllDesc(indexPage, lastId));
                 break;
             case "area":
                 model.addAttribute("input", "근처 상품 목록");
-                model.addAttribute("Post", postsService.findByAddress(value, indexPage, cursor));
+                model.addAttribute("Post", postsService.findByAddress(value, indexPage, lastId));
                 break;
             case "search":
                 model.addAttribute("input", "검색어 : " + value);
-                model.addAttribute("Post", postsService.search(value, indexPage, cursor));
+                model.addAttribute("Post", postsService.search(value, indexPage, lastId));
                 break;
         }
         PostPageDto pageDto = new PostPageDto();
         pageDto.setKind(kind);
         pageDto.setValue(value);
         model.addAttribute("page", pageDto);
-        model.addAttribute("LastId", postsService.LastId());
+        model.addAttribute("LastId", lastId);
         return "request";
     }
 

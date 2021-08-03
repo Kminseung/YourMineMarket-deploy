@@ -152,6 +152,6 @@ public class PostsService {
     }
 
     public Long LastId() {
-        return postsRepository.findByIdMax().get().getId();
+        return postsRepository.findByIdMax();
     }
 }
