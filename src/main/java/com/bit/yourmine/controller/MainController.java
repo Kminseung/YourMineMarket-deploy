@@ -32,7 +32,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index(HttpSession session, Model model, HttpServletResponse response) {
-        final Long cursor = 0L;
+        Long cursor = postsService.LastId() + 1;
         List<PostsResponseDto> postsList = postsService.findAllDesc(indexPage, cursor);
         model.addAttribute("posts", postsList);
         List<PostsResponseDto> hitList = postsService.findByHit(indexPage, cursor);
@@ -55,7 +55,7 @@ public class MainController {
 
     @GetMapping("/request/{kind}/{value}")
     public String requestPage(@PathVariable String kind, @PathVariable String value, Model model) {
-        Long lastId = postsService.LastId();
+        Long lastId = postsService.LastId() + 1;
         switch (kind) {
             case "category":
                 model.addAttribute("input", "해당 카테고리의 상품 목록");
