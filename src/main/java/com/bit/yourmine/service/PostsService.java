@@ -86,7 +86,7 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public List<PostsResponseDto> findAllDesc(Pageable pageable, Long cursor) {
-        return postsRepository.findAllDesc(pageable, cursor, wait).stream()
+        return postsRepository.findAllDesc(pageable, wait).stream()
                 .map(PostsResponseDto::new)
                 .collect(Collectors.toList());
     }
