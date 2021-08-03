@@ -34,7 +34,7 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 
     @Transactional
     @Modifying
-    @Query("UPDATE Posts p SET p.hit = p.hit+1 WHERE p.id = :id DESC")
+    @Query("UPDATE Posts p SET p.hit = p.hit+1 WHERE p.id = :id")
     void hitUpdate(Long id);
 
     Optional<Posts> findById(Long id);
