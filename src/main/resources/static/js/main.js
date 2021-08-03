@@ -29,9 +29,8 @@ let getter = function getter() {
         contentType: 'application/json; charset=UTF-8',
         data: JSON.stringify(data),
         success: function(result) {
-            $("#cursor").val(function(i, val) {
-                return val + 1;
-            });
+            let cur = Number($("#cursor").val());
+            $("#cursor").val(cur+1);
             let obj = JSON.parse(result);
             let i = 1;
             obj.forEach(function (item) {
