@@ -269,6 +269,11 @@ function sendReview() {
         $.alert('다시 시도해주세요');
     });
 }
+
+$('#chatting').on("DOMNodeInserted", function () {
+    readCheck();
+});
+
 wsOpen();
 readCheck();
 textLoad();
