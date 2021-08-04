@@ -131,3 +131,11 @@ a {
     font-size: 0.9rem;
     opacity: 0.5;
 }
+.fw-bolder {
+    max-width: 180px;
+    display:inline-block;
+    vertical-align: middle;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
