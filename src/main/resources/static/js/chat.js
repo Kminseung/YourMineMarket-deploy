@@ -270,8 +270,12 @@ function sendReview() {
     });
 }
 
-$('#chatting').on("DOMNodeInserted", function () {
-    readCheck();
+const x = new MutationObserver(function (e) {
+    if (e[0].addedNodes) {
+        $('#chatting').ready(function () {
+            readCheck();
+        });
+    }
 });
 
 wsOpen();
