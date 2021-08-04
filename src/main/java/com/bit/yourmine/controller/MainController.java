@@ -59,7 +59,7 @@ public class MainController {
         switch (kind) {
             case "category":
                 model.addAttribute("input", "해당 카테고리의 상품 목록");
-                model.addAttribute("Post", postsService.findByCategory(value, indexPage, lastId));
+                model.addAttribute("Post", postsService.findByCategory(value, indexPage));
                 break;
             case "hit":
                 System.out.println("request mapping");

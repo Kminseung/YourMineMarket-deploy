@@ -11,17 +11,14 @@ import java.util.Optional;
 
 public interface PostsRepository extends JpaRepository<Posts, Long> {
 
-//    @Query("SELECT p FROM Posts p WHERE p.id < :id AND p.status = :wait ORDER BY p.id DESC")
-//    List<Posts> findAllDesc(Pageable pageable, Long id, String wait);
     @Query("SELECT p FROM Posts p WHERE p.status = :wait ORDER BY p.id DESC")
     List<Posts> findAllDesc(Pageable pageable, String wait);
 
-//    @Query("SELECT p FROM Posts p WHERE p.id > :id AND p.status = :wait ORDER BY p.hit DESC")
     @Query("SELECT p FROM Posts p WHERE p.status = :wait ORDER BY p.hit DESC, p.id DESC")
     List<Posts> HitDesc(Pageable pageable, String wait);
 
-    @Query("SELECT p FROM Posts p WHERE p.category = :category AND p.id < :id AND p.status = :wait ORDER BY p.id DESC")
-    List<Posts> findByCategory(String category, Pageable pageable, Long id, String wait);
+    @Query("SELECT p FROM Posts p WHERE p.category = :category AND p.status = :wait ORDER BY p.id DESC")
+    List<Posts> findByCategory(String category, Pageable pageable, String wait);
 
     @Query("SELECT p FROM Posts p WHERE p.area LIKE :Area% AND p.id < :id AND p.status = :wait ORDER BY p.id DESC")
     List<Posts> findByAddress(String Area, Pageable pageable, Long id, String wait);

@@ -35,10 +35,9 @@ let getter = function getter() {
             let i = 0;
             obj.forEach(function (item) {
                 $("#board").append("<div class=\"col mb-5\">\n" +
-                    "                        <div class=\"card h-100\">\n" +
-                    "                            <a href=\"/posts/" + item.id + "\">\n" +
+                    "                   <a href=\"/posts/" + item.id + "\">\n" +
+                    "                       <div class=\"card h-100\">\n" +
                     "                                <img src=\"" + item.thumbnail + "\" class=\"card-img-top\" alt=\"" + item.title + "\" width=\"200px\" height=\"200px\">\n" +
-                    "                            </a>\n" +
                     "                            <div class=\"card-body p-4\">\n" +
                     "                                <div class=\"text-center\">\n" +
                     "                                    <h5 class=\"fw-bolder\">" + item.title + "</h5>\n" +
@@ -47,7 +46,8 @@ let getter = function getter() {
                     "                                </div>\n" +
                     "                            </div>\n" +
                     "                        </div>\n" +
-                    "                    </div>");
+                    "                    </a>\n" +
+                    "               </div>");
                 i++;
                 if (obj.length == i) {
                     $('#id').val(item.id);

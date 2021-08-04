@@ -86,7 +86,6 @@ public class PostsService {
 
     @Transactional(readOnly = true)
     public List<PostsResponseDto> findAllDesc(Pageable pageable, Long cursor) {
-//        return postsRepository.findAllDesc(pageable, cursor, wait).stream()
         return postsRepository.findAllDesc(pageable, wait).stream()
                 .map(PostsResponseDto::new)
                 .collect(Collectors.toList());
@@ -97,8 +96,8 @@ public class PostsService {
         postsRepository.hitUpdate(id);
     }
 
-    public List<PostsResponseDto> findByCategory(String category, Pageable pageable, Long cursor) {
-        return postsRepository.findByCategory(category, pageable, cursor, wait).stream()
+    public List<PostsResponseDto> findByCategory(String category, Pageable pageable) {
+        return postsRepository.findByCategory(category, pageable, wait).stream()
                 .map(PostsResponseDto::new)
                 .collect(Collectors.toList());
     }

@@ -50,7 +50,7 @@ public class PostsApiController {
         String kind = pageDto.getKind();
         switch (kind) {
             case "category":
-                responseDtoList = postsService.findByCategory(pageDto.getValue(), newPage, id);
+                responseDtoList = postsService.findByCategory(pageDto.getValue(), newPage);
                 break;
             case "hit":
                 responseDtoList = postsService.findByHit(newPage, id);
