@@ -4,6 +4,7 @@ import com.bit.yourmine.domain.users.Users;
 import com.bit.yourmine.service.MailService;
 import com.bit.yourmine.service.UsersService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -53,5 +54,10 @@ public class MailApiController {
             session.setAttribute("emailPass", "pass");
         }
         return check;
+    }
+
+    @GetMapping("/pageOut")
+    public void pageOut(HttpSession session) {
+        mailService.delMailSession(session);
     }
 }
